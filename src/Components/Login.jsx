@@ -1,18 +1,25 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import useAuth from '../Hooks/useAuth';
 import loginSvg from './../assets/img/login/login.svg';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { handleLogin } = useAuth();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const data = JSON.stringify({
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert('Please enter a valid email address');
+      return;
+    }
+    const body = JSON.stringify({
       email,
       password,
     });
-    console.log(data);
+    handleLogin(body);
   };
 
   return (

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import signupSvg from '../assets/img/signup/signup.svg';
+import useAuth from '../Hooks/useAuth';
 
 function Signup() {
   const [email, setEmail] = useState('');
@@ -13,9 +14,11 @@ function Signup() {
   const [address, setAddress] = useState('');
   const [pincode, setPincode] = useState('');
 
+  const { handleSignIn } = useAuth();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = JSON.stringify({
+    const body = JSON.stringify({
       email,
       name,
       dob,
@@ -26,7 +29,7 @@ function Signup() {
       pincode,
       password,
     });
-    console.log(data);
+    handleSignIn(body);
   };
 
   return (
