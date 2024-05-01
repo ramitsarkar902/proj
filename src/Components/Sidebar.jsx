@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 
-import logo from '../assets/img/logo.svg';
-import dashSvg from '../assets/img/sidebar/dashboard.svg';
-import depSvg from '../assets/img/sidebar/departments.svg';
-import empSvg from '../assets/img/sidebar/employees.svg';
-import hieSvg from '../assets/img/sidebar/hierarchy.svg';
+import logo from '../Assets/img/logo.svg';
+import dashSvg from '../Assets/img/sidebar/dashboard.svg';
+import depSvg from '../Assets/img/sidebar/departments.svg';
+import empSvg from '../Assets/img/sidebar/employees.svg';
+import hieSvg from '../Assets/img/sidebar/hierarchy.svg';
 
 function Sidebar() {
   return (

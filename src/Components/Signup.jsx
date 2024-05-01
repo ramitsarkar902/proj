@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import signupSvg from '../assets/img/signup/signup.svg';
+import signupSvg from '../Assets/img/signup/signup.svg';
 import useAuth from '../Hooks/useAuth';
 
 function Signup() {

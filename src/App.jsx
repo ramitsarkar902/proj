@@ -11,9 +11,11 @@ import Employees from './Components/Employees';
 import Hierarchy from './Components/Hierarchy';
 import Login from './Components/Login';
 import Signup from './Components/Signup';
+import { useSelector } from 'react-redux';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const { theme } = useSelector((state) => state.theme);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,6 +26,10 @@ function App() {
       navigate('/login');
     }
   }, []);
+
+  useEffect(() => {
+    document.documentElement.className = theme;
+  }, [theme]);
 
   return (
     <Routes>

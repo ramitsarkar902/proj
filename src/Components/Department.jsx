@@ -1,28 +1,27 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from 'react';
 
-import logo from "./../assets/img/logo.svg";
-import depSvg from "./../assets/img/sidebar/departments.svg";
-import dashSvg from "./../assets/img/sidebar/dashboard.svg";
-import empSvg from "./../assets/img/sidebar/employees.svg";
-import hieSvg from "./../assets/img/sidebar/hierarchy.svg";
-import Sidebar from "./Sidebar";
+import logo from './../Assets/img/logo.svg';
+import dashSvg from './../Assets/img/sidebar/dashboard.svg';
+import depSvg from './../Assets/img/sidebar/departments.svg';
+import empSvg from './../Assets/img/sidebar/employees.svg';
+import hieSvg from './../Assets/img/sidebar/hierarchy.svg';
+import Sidebar from './Sidebar';
 
 function Department() {
   const departmentList = [
-    "Engineering",
-    "Design",
-    "Project Management",
-    "Digital Marketing",
-    "Allocation Management",
-    "Sales",
-    "HR Management",
+    'Engineering',
+    'Design',
+    'Project Management',
+    'Digital Marketing',
+    'Allocation Management',
+    'Sales',
+    'HR Management',
   ];
 
   const [addDepartmentModal, setAddDepartmentModal] = useState(false);
-  const [departmentName, setDepartmentName] = useState("");
+  const [departmentName, setDepartmentName] = useState('');
   const [departments, setDepartments] = useState(departmentList);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
 
   const toggleModal = () => {
     setAddDepartmentModal(!addDepartmentModal);
@@ -40,7 +39,7 @@ function Department() {
     event.preventDefault();
     console.log(`Submitted department name: ${departmentName}`);
     setDepartments([...departments, departmentName]);
-    setDepartmentName("");
+    setDepartmentName('');
     setAddDepartmentModal(false);
   };
 
@@ -63,15 +62,14 @@ function Department() {
                 value={searchTerm}
                 onChange={handleSearchChange}
                 placeholder="Search Departments"
-                class="h-10 block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-300 rounded-md"
+                className="h-10 block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-300 rounded-md"
               />
             </div>
             <div className="w-1/6 mx-4">
               <button
-                class="w-full h-{40} bg-blue-400 text-sm active:bg-gray-700 cursor-pointer font-regular text-white px-5 py-2 mt-2 rounded uppercase"
+                className="w-full h-{40} bg-blue-400 text-sm active:bg-gray-700 cursor-pointer font-regular text-white px-5 py-2 mt-2 rounded uppercase"
                 type="submit"
-                onClick={toggleModal}
-              >
+                onClick={toggleModal}>
                 Add Department
               </button>
             </div>
@@ -81,8 +79,7 @@ function Department() {
                 <>
                   <div
                     className="overlay fixed inset-0 bg-black opacity-50 z-50"
-                    onClick={toggleModal}
-                  ></div>
+                    onClick={toggleModal}></div>
                   <div className="modal-content fixed inset-0 flex items-center justify-center z-50">
                     <div className="bg-white p-5 rounded-xl w-1/3">
                       <h2 className="pb-5 font-medium">Create Department</h2>
@@ -98,16 +95,14 @@ function Department() {
                         />
                         <div className="flex flex-row justify-center w-full">
                           <button
-                            class=" bg-blue-400 text-sm active:bg-gray-700 cursor-pointer font-regular text-white mx-5 px-5 py-2 mt-2 rounded uppercase"
-                            type="submit"
-                          >
+                            className=" bg-blue-400 text-sm active:bg-gray-700 cursor-pointer font-regular text-white mx-5 px-5 py-2 mt-2 rounded uppercase"
+                            type="submit">
                             Submit
                           </button>
                           <button
-                            class=" bg-blue-400 text-sm active:bg-gray-700 cursor-pointer font-regular text-white px-5 py-2 mt-2 rounded uppercase"
+                            className=" bg-blue-400 text-sm active:bg-gray-700 cursor-pointer font-regular text-white px-5 py-2 mt-2 rounded uppercase"
                             type="button"
-                            onClick={toggleModal}
-                          >
+                            onClick={toggleModal}>
                             Close
                           </button>
                         </div>
@@ -119,7 +114,7 @@ function Department() {
             </div>
           </div>
 
-          <div class="grid grid-cols-3 gap-4 p-12 pt-8 justify-center">
+          <div className="grid grid-cols-3 gap-4 p-12 pt-8 justify-center">
             {departments
               .filter((department) =>
                 department.toLowerCase().includes(searchTerm.toLowerCase())
